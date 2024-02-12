@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  nuxt:
+    container_name: ${PROJECT_NAME}_${APP_NAME}_nuxt
+    build:
+      context: .
+      dockerfile: ./docker/nuxt/Dockerfile
+    volumes:
+      - ./src:/src
+      - node_modules:/src/node_modules
+    working_dir: "/src"
+    ports:
+      - "3000:3000"
+    tty: true
+    environment:
+      - port=3000
+      - CHOKIDAR_USEPOLLING=true
+    command: sh -c "yarn && yarn dev"
+    networks:
+      - digden_network
+
+volumes:
+  node_modules:
+
+networks:
+  digden_network:
+    external: true
