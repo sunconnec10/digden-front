@@ -7,7 +7,7 @@
 <script setup>
   const { $backendURL } = useNuxtApp()
   const {data: response} = await useFetch(`${$backendURL()}/api/check`, {
-    server: true,
+    server: false,
   })
   const message = response.value?.message
 

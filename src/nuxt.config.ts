@@ -10,5 +10,8 @@ export default defineNuxtConfig({
       backendURL: 'http://localhost:8080',
       backendURLServer: 'http://digden_api_nginx',
     }
-  }
+  },
+  devServer: {
+    port: 8000,
+  },
 })
