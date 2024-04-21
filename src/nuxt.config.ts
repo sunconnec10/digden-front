@@ -11,6 +11,18 @@ export default defineNuxtConfig({
       backendURLServer: 'http://digden_api_nginx',
     }
   },
+  css: [
+   '@/assets/css/foundation/index.scss',
+  ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@use "@/assets/css/mixin/index.scss" as *;'
+        },
+      },
+    },
+  },
   devServer: {
     port: 8000,
   },
