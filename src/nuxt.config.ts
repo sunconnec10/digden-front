@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
@@ -9,6 +11,7 @@ export default defineNuxtConfig({
     public: {
       backendURL: 'http://localhost:8080',
       backendURLServer: 'http://digden_api_nginx',
+      seniorRootUrl: 'https://senior.rakuten.co.jp',
     }
   },
   css: [
@@ -23,7 +26,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  imports: {
+    dirs: [
+      'composables/*/index.{ts,js,mjs,mts}',
+    ]
+  },
   devServer: {
     port: 8000,
   },
+  components: [
+    {
+      path: "@/components",
+      pathPrefix: false,
+    },
+  ],
 })
