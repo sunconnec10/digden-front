@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     }
   },
   css: [
-   '@/assets/css/foundation/index.scss',
+    '@/assets/css/foundation/index.scss',
   ],
   vite: {
     css: {
